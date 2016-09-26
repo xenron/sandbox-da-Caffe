@@ -1,0 +1,9 @@
+package dataguru;
+enum ClassType{
+	DATAMINING = 0;
+	COMPUTERVISION = 1;
+}
+message Class{
+	required int32 id = 1;
+	optional  ClassType name = 2 [default = COMPUTERVISION];
+}
