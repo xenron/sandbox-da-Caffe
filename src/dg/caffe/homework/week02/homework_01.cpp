@@ -7,14 +7,17 @@
 #include <iostream>
 #include <fstream>
 
-#include "ly.helloworld.pb.h"
+#include "dataguru.class.pb.h"
 
 int main(int argc,char* argv[]){
-	ly::helloworld msg;
-	msg.set_id(10);
-	msg.set_str("hello");
+	dataguru::class msg;
+	
+	std::cout<<msg.id()<<" "<<msg.name()<<std::endl;
+	
+	msg.set_id(18);
+	msg.set_str("peter");
 
-	std::cout<<msg.id()<<" "<<msg.str()<<std::endl;
+	std::cout<<msg.id()<<" "<<msg.name()<<std::endl;
 
 	// Write the new address book back to disk.
 	std::fstream output("./log",std::ios::out | std::ios::trunc | std::ios::binary);
