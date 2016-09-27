@@ -1,0 +1,10 @@
+test_blob.cpp
+export LD_LIBRARY_PATH=[caffe_path]/build/install/lib:${LD_LIBRARY_PATH} 
+gcc -o test_blob test_blob.cpp -D CPU_ONLY -lcaffe -lstdc++ -lglog
+
+ly.helloworld.proto
+protoc -I=. --cpp_out=. ly.helloworld.proto
+
+test_pb.cpp
+gcc -o test_pb test_pb.cpp ly.helloworld.pb.cc -lprotobuf -lstdc++
+
