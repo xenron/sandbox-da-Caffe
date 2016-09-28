@@ -1,7 +1,8 @@
 
-dataguru.class.proto
+# Protocol Buffers
+# dataguru.class.proto
 protoc -I=. --cpp_out=. dataguru.class.proto
 
-homework_01.cpp
+# homework_01.cpp
 gcc -o test homework_01.cpp dataguru.class.pb.cc -lprotobuf -lstdc++
 

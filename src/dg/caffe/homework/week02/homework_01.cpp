@@ -10,13 +10,16 @@
 #include "dataguru.class.pb.h"
 
 int main(int argc,char* argv[]){
-	dataguru::class msg;
+	dataguru::Class msg;
 	
+	std::cout<<"print default parameter"<<std::endl;
 	std::cout<<msg.id()<<" "<<msg.name()<<std::endl;
 	
 	msg.set_id(18);
-	msg.set_str("peter");
+	// msg.set_name("peter");
+	msg.set_name(dataguru::DATAMINING);
 
+	std::cout<<"print setting parameter"<<std::endl;
 	std::cout<<msg.id()<<" "<<msg.name()<<std::endl;
 
 	// Write the new address book back to disk.
