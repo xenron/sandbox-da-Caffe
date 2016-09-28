@@ -6,3 +6,18 @@ protoc -I=. --cpp_out=. dataguru.class.proto
 # homework_01.cpp
 gcc -o test homework_01.cpp dataguru.class.pb.cc -lprotobuf -lstdc++
 
+# 1. 获取数据
+./data/mnist/get_mnist.sh
+# 2. 将数据转化为lmdb格式
+./examples/mnist/create_mnist.sh
+# 3. 训练
+./examples/mnist/train_lenet.sh
+# 注意：
+# * 脚本的运行基于$Caffe_Root文件加下的路径执行
+# * 训练的时候，如果安装的时候选择了CPU_ONLY的话，在*.prototxt文件中，把“mode:GPU”改成“mode:CPU”
+
+./examples/mnist/create_mnist.sh
+# create_mnist.sh是利用caffe-master/build/examples/mnist/的convert_mnist_data.bin工具，将mnist date转化为可用的lmdb格式的文件。并将新生成的2个文件mnist-train-lmdb 和 mnist-test-lmdb放于create_mnist.sh同目录下。
+./examples/mnist/train_lenet.sh
+# 调用工具：./build/tools/caffe train --solver=examples/mnist/lenet_solver.prototxt
+
