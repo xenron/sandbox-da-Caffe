@@ -1,0 +1,5 @@
+test_mnist.cpp
+g++ -o test_mnist test_mnist.cpp -lopencv_dnn -lopencv_highgui -lopencv_imgcodecs -lopencv_imgproc -lstdc++ -lopencv_core
+
+
+

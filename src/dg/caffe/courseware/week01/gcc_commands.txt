@@ -1,0 +1,2 @@
+test_opencv.cpp
+g++ -o test_opencv test_opencv.cpp -lopencv_core -lopencv_highgui -lopencv_imgcodecs
