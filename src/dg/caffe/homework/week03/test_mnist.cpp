@@ -22,6 +22,8 @@ void getMaxClass(dnn::Blob &probBlob, int *classId, double *classProb)
 
 int main(int argc,char* argv[]){
 
+    std::cout << "11111111111111" << std::endl;
+
     String modelTxt = "mnist_deploy.prototxt";
     String modelBin = "lenet_iter_10000.caffemodel";
     String imageFile = (argc > 1) ? argv[1] : "5.jpg";
@@ -37,6 +39,8 @@ int main(int argc,char* argv[]){
         exit(-1);
     }
 
+    std::cout << "22222222222222" << std::endl;
+
     //! [Initialize network] 通过接口创建和初始化网络
     Net net;
     importer->populateNet(net);  
@@ -44,6 +48,11 @@ int main(int argc,char* argv[]){
 
     //! [Prepare blob] 读取一张图片并转换到blob数据存储
     Mat img = imread(imageFile,0); //[<Important>] "0" for 1 channel, Mnist accepts 1 channel
+
+    // Mat img_orgi = imread(imageFile);
+    // Mat img;
+    // cvtColor(img_orgi,img,CV_RGB2GRAY);
+
     if (img.empty())
     {
         std::cerr << "Can't read image from the file: " << imageFile << std::endl;
@@ -51,13 +60,19 @@ int main(int argc,char* argv[]){
     }
     resize(img, img, Size(28, 28));                   //[<Important>]Mnist accepts only 28x28 RGB-images
 
+    std::cout << "33333333333333" << std::endl;
+
     dnn::Blob inputBlob = cv::dnn::Blob(img);   //Convert Mat to dnn::Blob batch of images
+
 
     //! [Set input blob] 将blob输入到网络
     net.setBlob(".data", inputBlob);        //set the network input
+    std::cout << "44444444444444" << std::endl;
 
     //! [Make forward pass] 进行前向传播
     net.forward();                          //compute output
+
+    std::cout << "55555555555555" << std::endl;
 
     //! [Gather output] 获取概率值
     dnn::Blob prob = net.getBlob("prob");   //[<Important>] gather output of "prob" layer
