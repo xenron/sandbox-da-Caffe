@@ -62,7 +62,8 @@ int main(int argc,char* argv[]){
 
     std::cout << "33333333333333" << std::endl;
 
-    dnn::Blob inputBlob = cv::dnn::Blob(img);   //Convert Mat to dnn::Blob batch of images
+    // dnn::Blob inputBlob = cv::dnn::Blob(img);   //Convert Mat to dnn::Blob batch of images
+    dnn::Blob inputBlob = cv::dnn::Blob::fromImages(img);
 
 
     //! [Set input blob] 将blob输入到网络
