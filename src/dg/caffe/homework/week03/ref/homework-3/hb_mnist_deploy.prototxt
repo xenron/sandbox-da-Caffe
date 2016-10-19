@@ -1,13 +1,11 @@
-
-name: "conv1"
+name: "LeNet"
 input: "data"
 input_shape {
-  dim: 1 # batchsize
-  dim: 1 # number of colour channels - rgb
-  dim: 28 # width
-  dim: 28 # height
+  dim: 1
+  dim: 1
+  dim: 28
+  dim: 28
 }
-
 layer {
   name: "conv1"
   type: "Convolution"
@@ -125,8 +123,8 @@ layer {
   }
 }
 layer {
-  name: "prob"
+  name: "hb_prob"
   type: "Softmax"
   bottom: "ip2"
-  top: "prob"
+  top: "hb_prob"
 }
