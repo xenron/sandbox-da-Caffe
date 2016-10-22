@@ -70,7 +70,8 @@ int main(int argc,char* argv[]){
     img = 255 - img;
     imwrite("img.jpg", img);
 
-    dnn::Blob inputBlob = cv::dnn::Blob(img);   //Convert Mat to dnn::Blob batch of images
+    // dnn::Blob inputBlob = cv::dnn::Blob(img);   //Convert Mat to dnn::Blob batch of images
+    dnn::Blob inputBlob = cv::dnn::Blob::fromImages(img);
 
     //! [Set input blob] 将blob输入到网络
     net.setBlob(".data", inputBlob);        //set the network input
