@@ -12,7 +12,7 @@
 #include "caffe/blob.hpp"
 
 int main(int argc,char* argv[]){
-	//构造一个Blob
+	// 构造一个Blob
 	caffe::Blob<float> b;
 	std::cout<<"Size : "<<b.shape_string()<<std::endl;
 	b.Reshape(1,2,3,4);

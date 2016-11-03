@@ -1,5 +1,9 @@
+
+# env setting
+export LD_LIBRARY_PATH=[caffe_path]/build/install/lib:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=/usr/local/lib:${LD_LIBRARY_PATH}
+
 test_blob.cpp
-export LD_LIBRARY_PATH=[caffe_path]/build/install/lib:${LD_LIBRARY_PATH} 
 gcc -o test_blob test_blob.cpp -D CPU_ONLY -lcaffe -lstdc++ -lglog
 
 # Protocol Buffers
