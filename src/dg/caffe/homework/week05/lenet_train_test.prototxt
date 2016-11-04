@@ -15,6 +15,7 @@ layer {
     batch_size: 64
     backend: LMDB
     // new param
+    big_image_path: "digits.png"
     cell_image_height: 20
     cell_image_width: 20
     cell_start: 0
@@ -38,6 +39,7 @@ layer {
     batch_size: 100
     backend: LMDB
     // new param
+    big_image_path: "digits.png"
     cell_image_height: 20
     cell_image_width: 20
     cell_start: 80
