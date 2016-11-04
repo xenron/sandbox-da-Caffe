@@ -1,4 +1,8 @@
 
+# caffe orgi
+[caffe_root_path]/src/caffe/layers/image_data_layer.cpp
+[caffe_root_path]/examples/mnist/lenet_train_test.prototxt
+
 # ubuntu
 
 
