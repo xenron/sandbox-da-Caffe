@@ -32,21 +32,22 @@ void ImageDataLayer<Dtype>::DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
   
   const int cell_image_height = this->layer_param_.image_data_param().cell_image_height();
   const int cell_image_width  = this->layer_param_.image_data_param().cell_image_width();
-  const bool cell_start  = this->layer_param_.image_data_param().cell_start();
-  const bool cell_count  = this->layer_param_.image_data_param().cell_count();
-  string big_image_file_path = this->layer_param_.image_data_param().big_image_file_path();
+  const int cell_start  = this->layer_param_.image_data_param().cell_start();
+  const int cell_count  = this->layer_param_.image_data_param().cell_count();
+  const string& big_image_file_path = this->layer_param_.image_data_param().big_image_file_path();
 
-  CHECK((new_height == 0 && new_width == 0) ||
-      (new_height > 0 && new_width > 0)) << "Current implementation requires "
-      "new_height and new_width to be set at the same time.";
+  // if CHECK((new_height == 0 && new_width == 0) ||
+  //     (new_height > 0 && new_width > 0)) << "Current implementation requires "
+  //     "new_height and new_width to be set at the same time.";
   
   // Read the file with filenames and labels
-  const string& source = this->layer_param_.image_data_param().source();
-  LOG(INFO) << "Opening file " << source;
+  // const string& source = this->layer_param_.image_data_param().source();
+  LOG(INFO) << "Opening file " << big_image_file_path;
   std::ifstream infile(source.c_str());
   string line;
   size_t pos;
   int label;
+  
   while (std::getline(infile, line)) {
     pos = line.find_last_of(' ');
     label = atoi(line.substr(pos + 1).c_str());
