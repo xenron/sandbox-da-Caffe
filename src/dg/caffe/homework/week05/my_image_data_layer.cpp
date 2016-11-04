@@ -25,14 +25,21 @@ ImageDataLayer<Dtype>::~ImageDataLayer<Dtype>() {
 template <typename Dtype>
 void ImageDataLayer<Dtype>::DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top) {
-  const int new_height = this->layer_param_.image_data_param().new_height();
-  const int new_width  = this->layer_param_.image_data_param().new_width();
-  const bool is_color  = this->layer_param_.image_data_param().is_color();
-  string root_folder = this->layer_param_.image_data_param().root_folder();
+  // const int new_height = this->layer_param_.image_data_param().new_height();
+  // const int new_width  = this->layer_param_.image_data_param().new_width();
+  // const bool is_color  = this->layer_param_.image_data_param().is_color();
+  // string root_folder = this->layer_param_.image_data_param().root_folder();
+  
+  const int cell_image_height = this->layer_param_.image_data_param().cell_image_height();
+  const int cell_image_width  = this->layer_param_.image_data_param().cell_image_width();
+  const bool cell_start  = this->layer_param_.image_data_param().cell_start();
+  const bool cell_count  = this->layer_param_.image_data_param().cell_count();
+  string big_image_file_path = this->layer_param_.image_data_param().big_image_file_path();
 
   CHECK((new_height == 0 && new_width == 0) ||
       (new_height > 0 && new_width > 0)) << "Current implementation requires "
       "new_height and new_width to be set at the same time.";
+  
   // Read the file with filenames and labels
   const string& source = this->layer_param_.image_data_param().source();
   LOG(INFO) << "Opening file " << source;
