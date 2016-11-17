@@ -1,0 +1,21 @@
+name: "CaffeNet"
+input: "data"
+input_shape {
+  dim: 1 # batchsize
+  dim: 1 # number of colour channels - rgb
+  dim: 28 # width
+  dim: 28 # height
+}
+
+layer {
+  name: "one"
+  type: "Python"
+  bottom: "data"
+  top: "data_out"
+  python_param {
+    module: "test_my_python_layer"
+    layer: "MyPython"
+    param_str: '2'
+  }
+}
+
