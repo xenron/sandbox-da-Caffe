@@ -1,0 +1,14 @@
+
+# ubuntu
+
+# my neuron layer
+# $CAFFE_ROOT/include/caffe/layers/my_neuron_layer.hpp
+# $CAFFE_ROOT/src/caffe/my_neuron_layer.cpp
+
+cd ~/caffe/build
+cmake -D CPU_ONLY=ON -D CMAKE-PREFIX_INSTALL=/usr/local ..
+sudo make all
+
+test_my_neuron.py
+
+
