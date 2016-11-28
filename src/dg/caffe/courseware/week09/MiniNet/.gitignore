@@ -1,0 +1,15 @@
+#
+#not finished
+Net.m
+alpha/
+*.asv
+
+#data
+*ubyte
+
+#tmp
+*.a
+*.o
+mnist
+ofsmall
+*.html
