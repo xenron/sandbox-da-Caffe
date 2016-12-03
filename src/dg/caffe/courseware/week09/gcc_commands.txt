@@ -1,0 +1,10 @@
+sudo apt-get install libjsoncpp-dev
+
+cd armadillo-7.500.2
+cmake .
+make all
+sudo make install
+
+cd MiniNet/cpp
+make all
+./build/ofsmall
