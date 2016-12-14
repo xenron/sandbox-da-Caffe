@@ -1,0 +1,4 @@
+正样本推荐一个斯坦福的数据集给大家，大家可以自己去下载使用，training data/testing data/bounding box都有下载。因为数据库有点大，所以建议大家根据说明直接去下载。
+http://ai.stanford.edu/~jkrause/cars/car_dataset.html
+
+*还有一个比较全的车辆数据库就是港中文的CompCars，不过这个数据库需要填agreement，所以暂时不方便直接推荐给大家使用。
