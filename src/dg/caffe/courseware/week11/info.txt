@@ -1,0 +1,2 @@
+# vehicle_detect.cpp
+gcc -o vehicle_detect vehicle_detect.cpp -D CPU_ONLY -lcaffe -lstdc++ -lglog

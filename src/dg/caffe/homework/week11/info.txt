@@ -1,0 +1,21 @@
+
+# env setting
+export LD_LIBRARY_PATH=[caffe_path]/build/install/lib:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=/usr/local/lib:${LD_LIBRARY_PATH}
+
+
+
+test_blob.cpp
+gcc -o test_blob test_blob.cpp -D CPU_ONLY -lcaffe -lstdc++ -lglog
+gcc -o test_blob test_blob.cpp -D CPU_ONLY -L /usr/local/lib -lcaffe -lstdc++ -lglog
+gcc -o test_blob test_blob.cpp -D CPU_ONLY -L [caffe_path]/build/install/lib -lcaffe -lstdc++ -lglog
+
+
+
+# Protocol Buffers
+# ly.helloworld.proto
+protoc --proto_path=IMPORT_PATH --cpp_out=DST_DIR --java_out=DST_DIR --python_out=DST_DIR path/to/file.proto
+protoc -I=. --cpp_out=. ly.helloworld.proto
+
+test_pb.cpp
+gcc -o test_pb test_pb.cpp ly.helloworld.pb.cc -lprotobuf -lstdc++
