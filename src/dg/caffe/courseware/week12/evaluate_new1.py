@@ -64,7 +64,9 @@ def test_one(image_path):
     scores = np.reshape(scores,(10,))
     print scores.shape
     print scores
-    image=cv2.imread(image_path) 
+    image=cv2.imread(image_path)
+    image=cv2.resize(image, (39,39))
+
     for  i in range(0,10,2):
         cv2.circle(image,(int(scores[i]),int(scores[i+1])),1,[0,0,255])
     #image = cv2.resize(image,(200,200))
@@ -73,6 +75,14 @@ def test_one(image_path):
     return image
 
 if __name__  ==  "__main__":
+    
+    # savepath= '/media/crw/MyBook/Experiment/FaceAlignment/Evaluate/result/';
+    # for i in range(1,200):
+    #     image_path ='/media/crw/MyBook/MyDataset/FacePoint/test39X39/'+str(i)+'.jpg'
+    #     image = test_one(image_path)
+    #     print image.shape
+    #     cv2.imwrite(savepath + str(i)+'.jpg',image)
+
     savepath= face_alignment_root + 'Evaluate/result1/';
     image_path = face_alignment_root + 'Evaluate/result/141.jpg'
     image = test_one(image_path)
