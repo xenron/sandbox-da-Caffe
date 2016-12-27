@@ -8,8 +8,11 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-caffe_root = '/opt/DeepFace/resource/caffe-local/'
+caffe_root = '/opt/caffe-local/'
+deepface_root = '/opt/DeepFace/'
+face_alignment_root = '/opt/DeepFace/FaceAlignment/'
 sys.path.insert(0, caffe_root + 'python')
+
 import caffe
 import cv2
 
@@ -21,8 +24,8 @@ plt.rcParams['image.interpolation'] = 'nearest'
 plt.rcParams['image.cmap'] = 'gray'
 
 itera=1500000
-net = caffe.Classifier('/opt/DeepFace/FaceAlignment/try1_2/depoly.prototxt',
-      '/opt/DeepFace/FaceAlignment/Model/try1_2/snapshot_iter_' +str(itera)+'.caffemodel')
+net = caffe.Classifier(face_alignment_root + 'try1_2/depoly.prototxt',
+      face_alignment_root + 'Model/try1_2/snapshot_iter_' +str(itera)+'.caffemodel')
 
 net.set_phase_test()
 net.set_mode_cpu()
@@ -70,9 +73,8 @@ def test_one(image_path):
     return image
 
 if __name__  ==  "__main__":
-    savepath= '/opt/DeepFace/FaceAlignment/Evaluate/result1/';
-#    for i in range(1,200):
-    image_path ='/opt/DeepFace/FaceAlignment/Evaluate/result2/141.png'
+    savepath= face_alignment_root + 'Evaluate/result1/';
+    image_path = face_alignment_root + '/Evaluate/result2/141.png'
     image = test_one(image_path)
     print image.shape
     cv2.imwrite(savepath + '141.png', image)
