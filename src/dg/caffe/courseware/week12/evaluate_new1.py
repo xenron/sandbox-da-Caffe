@@ -74,8 +74,8 @@ def test_one(image_path):
 
 if __name__  ==  "__main__":
     savepath= face_alignment_root + 'Evaluate/result1/';
-    image_path = face_alignment_root + '/Evaluate/result2/141.png'
+    image_path = face_alignment_root + 'Evaluate/result/141.jpg'
     image = test_one(image_path)
     print image.shape
-    cv2.imwrite(savepath + '141.png', image)
+    cv2.imwrite(savepath + '141.jpg', image)
         

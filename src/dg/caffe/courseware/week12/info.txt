@@ -1,3 +1,7 @@
 git clone https://github.com/RiweiChen/DeepFace.git
 git clone git@github.com:RiweiChen/DeepFace.git
 
+# DeepFace/FaceAlignment
+cd DeepFace/FaceAlignment/Evaluate/
+python evaluate_new1.py
+
